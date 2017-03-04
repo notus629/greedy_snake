@@ -3,6 +3,8 @@ A extremely simple js &amp; html5 canvas based snake game. (贪吃蛇游戏)
 
 参考：[六星教育培训课程](https://ke.qq.com/course/167177)（并非打广告，确实参照了人家的东西，可以略过）
 
+[Demo](https://notus629.github.io/greedy_snake/)
+
 ##基本步骤如下
 
 1. 画制可见的表格，蛇及食物的初始位置
