@@ -5,6 +5,8 @@ A extremely simple js &amp; html5 canvas based snake game. (贪吃蛇游戏)
 
 [Demo](https://notus629.github.io/greedy_snake/)
 
+Author: Notus\(hehe_xiao@qq.com\)
+
 ##基本步骤如下
 
 1. 画制可见的表格，蛇及食物的初始位置
@@ -26,6 +28,6 @@ A extremely simple js &amp; html5 canvas based snake game. (贪吃蛇游戏)
     * 增加蛇的长度，添加一个新的蛇尾
     * 将食物移除,产生一个新的随机食物
 
-4. 蛇自己运动，设置 setTimeOut
+4. 蛇自己运动，使用 setInterval 函数
 
 5. 计算分数
