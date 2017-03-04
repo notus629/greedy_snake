@@ -56,8 +56,8 @@
 		const SPEED_UP = 0.9;
 		var speed = MOVE_SPEED;
 		var timer;
-		moveByClock();
-
+		//moveByClock();
+		timer = setInterval("moveSnake()", MOVE_SPEED);
 		// 根据方向键来移动蛇
 		moveSnakeByKeys();
 
@@ -112,7 +112,6 @@
 				ctx.fill();
 				ctx.stroke();
 			}
-
 		}
 
 		// 绘制食物
@@ -149,6 +148,7 @@
 			redraw();
 		}
 
+		// 得到蛇头
 		function getSnakeHead(){
 			return snake[snake.length - 1];
 		}
@@ -184,28 +184,28 @@
 			drawFood();
 		}
 
-		// 蛇按时间移动
-		function moveByClock(){
-			moveSnake();
-			timer = setTimeout("moveByClock()", speed);
-		}
+//		// 蛇按时间移动
+//		function moveByClock(){
+//			moveSnake();
+//			//timer = setTimeout("moveByClock()", speed);
+//		}
 
 		// 吃到自己或撞墙
 		function checkDeath(){
 			var head = getSnakeHead();
 			//撞墙
 			if(head.x < 0 || head.x > CELL_CNT - 1 || head.y < 0 || head.y > CELL_CNT - 1){
+				clearTimeout(timer);
 				var msg = "不幸撞墙了, Game Over!\n得分： " + score;
 				alert(msg);
-				clearTimeout(timer);
 				window.location.reload();
 			}
 			// 咬到自己
-			for(var i = 0 ; i < snake.length - 1; ++i){
+			for(var i = 0 ; i < snake.length - 1; i++){
 				if(snake[i].x == head.x && snake[i].y == head.y){
+					clearTimeout(timer);
 					msg ="咬到自己了, Game Over!\n得分： " + score;
 					alert(msg);
-					clearTimeout(timer);
 					window.location.reload();
 				}
 			}
@@ -228,16 +228,16 @@
 
 			function snakeGrow(){
 				// 蛇身往后生长而非往前
-				for(var i = snake.length; i > 1; i--){
+				for(var i = snake.length; i > 0; i--){
 					snake[i] = snake[i - 1];
 				}
-				var newTail = new SnakeCell(snake[1].x, snake[1].y, snake[1].f);
+				var newTail = new SnakeCell(snake[0].x, snake[0].y, snake[0].f);
 				var head = getSnakeHead();
 				switch(head.f){
-					case UP: newTail.y--; break;
-					case DOWN: newTail.y++; break;
-					case LEFT: newTail.x--; break;
-					case RIGHT: newTail.x++; break;
+					case UP: newTail.y++; break;  // 尾部增长方向与头方向相反
+					case DOWN: newTail.y--; break;
+					case LEFT: newTail.x++; break;
+					case RIGHT: newTail.x--; break;
 					default: break;
 				}
 				snake[0] = newTail;
