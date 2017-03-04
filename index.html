@@ -195,7 +195,7 @@
 			var head = getSnakeHead();
 			//撞墙
 			if(head.x < 0 || head.x > CELL_CNT - 1 || head.y < 0 || head.y > CELL_CNT - 1){
-				clearTimeout(timer);
+				clearInterval(timer);
 				var msg = "不幸撞墙了, Game Over!\n得分： " + score;
 				alert(msg);
 				window.location.reload();
@@ -203,7 +203,7 @@
 			// 咬到自己
 			for(var i = 0 ; i < snake.length - 1; i++){
 				if(snake[i].x == head.x && snake[i].y == head.y){
-					clearTimeout(timer);
+					clearInterval(timer);
 					msg ="咬到自己了, Game Over!\n得分： " + score;
 					alert(msg);
 					window.location.reload();
@@ -219,6 +219,8 @@
 				snakeGrow();      // 蛇身在末尾加一截
 				newFood();		  // 产生新的食物
 				speed *= SPEED_UP;     // 加快速度
+				clearInterval(timer);
+				timer = setInterval("moveSnake()", speed);
 			}
 
 			function newFood(){
