@@ -1,13 +1,10 @@
 # greedy_snake
-A extremely simple js &amp; html5 canvas based snake game. (贪吃蛇游戏)
+- A extremely simple js &amp; html5 canvas based snake game. (贪吃蛇游戏)
+- Author: Notus(hehe_xiao@qq.com)
+- [Demo](https://notus629.github.io/greedy_snake/)
 
-参考：[六星教育培训课程](https://ke.qq.com/course/167177)
 
-[Demo](https://notus629.github.io/greedy_snake/)
-
-Author: Notus\(hehe_xiao@qq.com\)
-
-##基本步骤如下
+## 基本步骤
 
 1. 画制可见的表格，蛇及食物的初始位置
     * 横向 30 个格子 竖向 30 个格子,每个格子边长 15, 画布总大小 450\*450px
@@ -31,3 +28,7 @@ Author: Notus\(hehe_xiao@qq.com\)
 4. 蛇自己运动，使用 setInterval 函数
 
 5. 计算分数
+
+
+## Reference
+* [六星教育培训课程](https://ke.qq.com/course/167177)
